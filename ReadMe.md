@@ -12,3 +12,9 @@ the menu setting and then manually break it again.
 
 ## Special Thanks
 MsGreen419 for requesting the mod
+
+FroggyBomb and ColetteMSLP for testing
+
+## Patch Notes
+1.0.1.0
+- Added null check to avoid game crashes

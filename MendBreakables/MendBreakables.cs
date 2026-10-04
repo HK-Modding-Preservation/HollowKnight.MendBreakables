@@ -8,7 +8,7 @@ namespace MendBreakables
     {
         internal static MendBreakables Instance;
 
-        public override string GetVersion() => "1.0.0.0";
+        public override string GetVersion() => "1.0.1.0";
 
         #region Global Settings
         internal static GlobalSettings globalSettings = new GlobalSettings();
@@ -46,6 +46,14 @@ namespace MendBreakables
                                                     SceneData self, PersistentBoolData persistentBoolData)
         {
             PersistentBoolData defaultData = orig(self, persistentBoolData);
+
+            // Check for null values
+            if (defaultData == null ||
+                string.IsNullOrWhiteSpace(defaultData.sceneName) ||
+                string.IsNullOrWhiteSpace(defaultData.id))
+            {
+                return defaultData;
+            }
 
             // Gramaphones in the trams
             if (globalSettings.tramGramaphones)
